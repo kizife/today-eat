@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 BookRepo의 fully qualified name으로 설정한다. -->
+<mapper namespace="com.ssafy.cafe.model.dao.ProductDao">
+
+<resultMap id="productResultMap" type="com.ssafy.cafe.model.dto.Product">
+    <result property="id" column="product_id"/>
+    <result property="name" column="name"/>
+    <result property="type" column="type"/>
+    <result property="price" column="price"/>
+    <result property="img" column="img"/>
+    <result property="description" column="description"/>
+</resultMap>
+
+	<select id="selectAll" resultType="Product">SELECT * FROM product order by product_id asc</select>
+	
+	
+	<select id="selectInfo" resultType="ProductWithComment" parameterType="int">
+    SELECT
+        p.product_id,
+        p.name, 
+        p.price, 
+        p.img, 
+        p.type,
+        (select count(rating)  from comment where product_id=p.product_id) as comment_count,
+        (select round(avg(rating),2) from comment where product_id=p.product_id) as average_stars,
+        (select sum(quantity) from order_detail where product_id=p.product_id) as total_sells  
+    FROM product p
+    WHERE p.product_id = #{productId}
+</select>
+
+
+<select id="selectProduct" resultType="Product" parameterType="int">
+    SELECT
+       *
+    FROM product 
+    WHERE product_id = #{productId}
+</select>
+
+</mapper>

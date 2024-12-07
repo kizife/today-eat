@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="350dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard_extrabold"
+            android:text="Welcome!"
+            android:textSize="32sp" />
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/login_Id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="8dp"
+        android:hint="  아이디"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container"
+        app:layout_constraintEnd_toStartOf="@id/btnConfirm"
+        android:drawableStart="@drawable/baseline_person_outline_24"
+        android:drawableTint="@color/text_gray"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="중복확인"
+        android:textSize="16dp"
+        style="@style/CustomMaterialButton1"
+        app:layout_constraintTop_toTopOf="@id/login_Id"
+        app:layout_constraintEnd_toEndOf="@id/joinPw"
+        app:cornerRadius="8dp"/>
+
+
+    <EditText
+        android:id="@+id/joinPw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="4dp"
+        android:hint="  비밀번호"
+        app:layout_constraintTop_toBottomOf="@id/login_Id"
+        android:drawableStart="@drawable/lockicon"
+        android:drawableTint="@color/text_gray"/>
+
+    <EditText
+        android:id="@+id/join_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="4dp"
+        android:hint="  이름"
+        app:layout_constraintTop_toBottomOf="@id/joinPw"
+        android:drawableStart="@drawable/infoicon"
+        android:drawableTint="@color/text_gray"/>
+
+    <EditText
+        android:id="@+id/joinNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="4dp"
+        android:hint="  전화번호"
+        app:layout_constraintTop_toBottomOf="@id/join_name"
+        android:drawableStart="@drawable/phoneicon"
+        android:drawableTint="@color/text_gray"/>
+
+    <EditText
+        android:id="@+id/joinAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="4dp"
+        android:hint="  주소"
+        app:layout_constraintTop_toBottomOf="@id/joinNum"
+        android:drawableStart="@drawable/baseline_home_filled_24"
+        android:drawableTint="@color/text_gray"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnJoin"
+        style="@style/CustomMaterialButton1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        android:padding="8dp"
+        android:text="회원 가입"
+        android:textSize="18sp"
+        app:cornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@id/joinAd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/btnJoin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pretendard_r"
+            android:text="투데잇의 회원이신가요?"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/gotoLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:text="로그인하기"
+            android:textColor="@color/text_yellow"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/gra1"
+        android:scaleType="fitStart"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
+        android:src="@drawable/gra2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

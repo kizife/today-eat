@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.cafe.model.dao.CombinationDao">
+
+  <insert id="insertCombination" parameterType="com.ssafy.cafe.model.dto.Combination" useGeneratedKeys="true" keyProperty="dosirockId">
+    INSERT INTO combination 
+    (user_id, main, side_dish1, side_dish2, soup, dosirack_price)
+    VALUES 
+    (#{userId}, #{main}, #{sideDish1}, #{sideDish2}, #{soup}, #{dosirackPrice})
+</insert>
+    <!-- 도시락 조합 데이터 업데이트 -->
+    <update id="updateCombination" parameterType="com.ssafy.cafe.model.dto.Combination">
+        UPDATE combination 
+        SET 
+            user_id = #{userId},
+            main = #{main},
+            side_dish1 = #{sideDish1},
+            side_dish2 = #{sideDish2},
+            soup = #{soup},
+            dosirack_price = #{dosirackPrice}
+        WHERE dosirock_id = #{dosirockId}
+    </update>
+
+    <!-- 도시락 조합 데이터 삭제 -->
+    <delete id="deleteCombination" parameterType="int">
+        DELETE FROM combination 
+        WHERE dosirock_id = #{dosirockId}
+    </delete>
+
+    <!-- 도시락 조합 데이터 조회 -->
+    <select id="selectCombination" parameterType="int" resultType="com.ssafy.cafe.model.dto.Combination">
+        SELECT * 
+        FROM combination 
+        WHERE dosirock_id = #{dosirockId}
+    </select>
+
+    <!-- 사용자 ID로 도시락 조합 조회 -->
+    <select id="selectByUserId" parameterType="String" resultType="com.ssafy.cafe.model.dto.Combination">
+        SELECT * 
+        FROM combination 
+        WHERE user_id = #{userId}
+    </select>
+
+</mapper>

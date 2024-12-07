@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 BookRepo의 fully qualified name으로 설정한다. -->
+<mapper namespace="com.ssafy.cafe.model.dao.OrderDao">
+
+
+	<insert id="insert" parameterType="Order"
+		useGeneratedKeys="true" keyProperty="orderId">
+		INSERT INTO `order`
+		(user_id,
+		address, completed, delivery_time)
+		VALUES
+		(#{userId}, #{address},
+		#{completed}, #{deliveryTime})
+	</insert>
+
+	<update id="update" parameterType="Order">
+		UPDATE `order`
+		SET completed =
+		#{completed}, delivery_time = #{deliveryTime}
+		WHERE order_id =
+		#{orderId}
+	</update>
+
+	<select id="selectByUser" parameterType="string"
+		resultType="Order">
+		SELECT
+		order_id AS orderId,
+		user_id,
+		order_time,
+		address,
+		completed,
+		delivery_time
+		FROM `order`
+		WHERE user_id = #{userId}
+		ORDER BY
+		order_id DESC
+	</select>
+
+
+	<select id="selectOrderInfo" parameterType="int"
+		resultMap="orderDetailMap">
+		SELECT o.order_id AS orderId,
+		o.user_id AS userId,
+		o.order_time AS orderTime,
+		o.address AS address,
+		o.completed AS
+		completed,
+		o.delivery_time AS deliveryTime,
+		d.detail_id AS id,
+		d.dosirock_id AS dosirockId,
+		d.quantity,
+		d.totalprice,
+		c.main AS
+		mainDish,
+		c.side_dish1 AS sideDish1,
+		c.side_dish2 AS sideDish2,
+		c.soup AS
+		soup,
+		c.dosirack_price AS dosirackPrice
+		FROM `order` o
+		LEFT JOIN
+		order_detail d ON o.order_id = d.order_id
+		LEFT JOIN combination c ON
+		d.dosirock_id = c.dosirock_id
+		WHERE o.order_id = #{orderId}
+	</select>
+
+	<update id="updateOrderStatus" parameterType="int">
+		UPDATE `order`
+		SET completed = 'Y'
+		WHERE order_id = #{orderId}
+	</update>
+
+
+
+
+
+
+	<!-- 관통 프로젝트 6단계에서 추가됨 -->
+	<select id="getLastMonthOrder" parameterType="string"
+		resultType="OrderInfo">
+		SELECT
+		o.order_id AS orderId,
+		o.user_id,
+		o.order_time,
+		o.address,
+		o.completed,
+		o.delivery_time
+		FROM `order` o
+		WHERE user_id =
+		#{id} AND order_time > DATE_ADD(NOW(), INTERVAL -1 MONTH)
+		ORDER BY
+		o.order_id DESC
+	</select>
+
+	<select id="getOrderDetailInfo" parameterType="int"
+		resultType="OrderDetailInfo">
+		SELECT
+		d.detail_id AS id,
+		o.order_id AS orderId,
+		d.dosirock_id AS dosirockId,
+		d.quantity,
+		c.main AS mainDish,
+		c.side_dish1 AS sideDish1,
+		c.side_dish2 AS sideDish2,
+		c.soup AS soup,
+		c.dosirack_price AS dosirackPrice
+		FROM `order` o
+		JOIN order_detail d ON
+		o.order_id = d.order_id
+		JOIN combination c ON d.dosirock_id =
+		c.dosirock_id
+		WHERE o.order_id = #{orderId}
+		ORDER BY d.detail_id ASC
+	</select>
+
+	<!-- 관통 프로젝트 6단계에서 추가됨 -->
+	<select id="getLast6MonthOrder" parameterType="string"
+		resultMap="OrderResult">
+		SELECT
+		o.order_id AS orderId,
+		o.user_id,
+		o.order_time,
+		o.address,
+		o.completed,
+		o.delivery_time
+		FROM `order` o
+		WHERE user_id =
+		#{id} AND order_time > DATE_ADD(NOW(), INTERVAL -6 MONTH)
+		ORDER BY
+		o.order_id DESC
+	</select>
+
+	<resultMap id="OrderResult" type="OrderInfo">
+		<id property="orderId" column="order_id" />
+		<result property="userId" column="user_id" />
+		<result property="orderTime" column="order_time" />
+		<result property="address" column="address" />
+		<result property="completed" column="completed" />
+		<result property="deliveryTime" column="delivery_time" />
+		<!-- getOrderDetailInfo 쿼리 결과로 details 필드를 채웁니다. -->
+		<collection property="details" javaType="ArrayList"
+			column="order_id" ofType="OrderDetailInfo"
+			select="getOrderDetailInfo" />
+	</resultMap>
+
+	<resultMap id="orderDetailMap" type="OrderDetailInfo">
+		<result property="id" column="id" />
+		<result property="orderId" column="orderId" />
+		<result property="dosirockId" column="dosirockId" />
+		<result property="quantity" column="quantity" />
+		<result property="totalPrice" column="totalprice" />
+		<result property="mainDish" column="mainDish" />
+		<result property="sideDish1" column="sideDish1" />
+		<result property="sideDish2" column="sideDish2" />
+		<result property="soup" column="soup" />
+		<result property="dosirackPrice" column="dosirackPrice" />
+		<result property="img" column="img" />
+	</resultMap>
+
+
+
+
+</mapper>

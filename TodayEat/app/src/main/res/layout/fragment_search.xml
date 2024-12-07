@@ -1,0 +1,89 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.category.CategorySide"
+    android:background="@color/background_ivory">
+
+    <TextView
+        android:id="@+id/searchTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/pretendard_extrabold"
+        android:text="오늘의 메뉴는? 🔍"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/searchDes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/searchTitle"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="@font/pretendard_r"
+            android:text="먹고 싶은 메뉴를 검색해 보세요."
+            android:textColor="@color/text_gray"
+            android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/searchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/searchDes"
+        android:layout_marginHorizontal="24dp">
+
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="  검색어를 입력해 주세요."
+        android:textSize="16sp"
+        android:fontFamily="@font/pretendard_r"
+        android:layout_marginTop="8dp"
+        android:drawableStart="@drawable/searchicon"
+        android:drawableTint="@color/text_gray"
+        />
+
+        <TextView
+            android:id="@+id/cancelSearchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취소"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/goSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색"
+            android:fontFamily="@font/pretendard_bold"
+            android:textColor="@color/text_yellow"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/searchContainer"
+        android:layout_marginTop="20dp"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

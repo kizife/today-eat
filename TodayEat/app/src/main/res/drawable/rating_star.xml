@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 배경 (채워지지 않은 하트) -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#D3D3D3" /> <!-- 비활성화된 하트 색 -->
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+    <!-- 중간 진행 상태 -->
+    <item android:id="@android:id/secondaryProgress">
+        <shape>
+            <solid android:color="@color/light_yellow"/> <!-- 중간 진행 하트 색 (핑크) -->
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+    <!-- 활성화된 상태 (채워진 하트) -->
+    <item android:id="@android:id/progress">
+        <shape>
+            <solid android:color="@color/point_yellow" /> <!-- 활성화된 하트 색 -->
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+</layer-list>
