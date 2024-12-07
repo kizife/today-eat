@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 BookRepo의 fully qualified name으로 설정한다. -->
+<mapper namespace="com.ssafy.cafe.model.dao.CommentDao">
+
+
+<resultMap id="commentResultMap" type="com.ssafy.cafe.model.dto.Comment">
+    <result property="commentId" column="comment_id"/>
+    <result property="userId" column="user_id"/>
+    <result property="productId" column="product_id"/>
+    <result property="rating" column="rating"/>
+    <result property="comment" column="comment"/>
+</resultMap>
+
+
+
+	<insert id="insert" parameterType="Comment">
+		INSERT INTO comment 
+		  (user_id,product_id, rating, comment)
+		VALUES 
+		  (#{userId}, #{productId}, #{rating}, #{comment})
+	</insert>
+	
+	<update id="update" parameterType="Comment">
+		UPDATE comment SET
+			user_id = #{userId}, 
+			product_id =  #{productId},
+			rating = #{rating},
+			comment = #{comment}
+		WHERE comment_id = #{commentId}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM comment
+		WHERE comment_id = #{commentId}
+	</delete>
+	
+	<select id="select" parameterType="int" resultType="Comment">
+		SELECT * FROM comment
+		WHERE comment_id = #{commentId}
+	</select>
+	
+	<select id="selectByProduct" parameterType="int" resultType="CommentInfo">
+		SELECT 
+		    c.comment_id 
+		    , c.product_id
+		    , c.rating
+		    , c.comment
+		    , c.user_id
+		    , u.name as user_name
+		FROM comment c 
+		JOIN user u on c.user_id = u.id
+		WHERE c.product_id = #{productId} 
+		ORDER BY c.comment_id DESC
+	</select>
+</mapper>

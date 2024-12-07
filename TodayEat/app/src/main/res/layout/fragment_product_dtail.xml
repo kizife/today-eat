@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_ivory"
+    tools:context=".ui.category.ProductDetail">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/product_detail_img"
+            android:layout_width="match_parent"
+            android:background="@color/back_gray"
+            android:layout_height="320dp"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/product_detail_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="맛있는 현미밥 120g"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/pretendard_bold"
+            android:textSize="28sp"
+            android:textAlignment="center"
+           />
+
+        <TextView
+            android:id="@+id/product_detail_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5000원"
+            android:fontFamily="@font/pretendard_r"
+            android:textSize="28sp"
+            android:textAlignment="center"
+        />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/main_gray"
+            app:layout_constraintTop_toBottomOf="@+id/product_detail_price"
+            android:layout_margin="16dp"
+         />
+
+        <TextView
+            android:id="@+id/product_detail_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="혹시 현미밥을 좋아하시나요? 저는 그렇게 좋아하진 않습니다만 싫어하지도 않습니다..하지만 건강엔 좋겠죠?"
+            android:fontFamily="@font/pretendard_r"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:layout_margin="25dp"
+            android:layout_marginBottom="200dp"
+        />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    />
+
+        </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

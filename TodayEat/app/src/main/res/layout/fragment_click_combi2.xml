@@ -1,0 +1,184 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.ClickCombiFragment">
+
+
+    <!-- 스크롤 가능한 컨텐츠 -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="72dp"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp">
+
+        <TextView
+            android:id="@+id/title_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="16dp"
+            android:elevation="4dp"
+            android:fontFamily="@font/pretendard_extrabold"
+            android:text="당신을 위한 추천 조합!"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            app:layout_constraintBottom_toTopOf="@id/recommContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22dp"
+            android:elevation="4dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintStart_toEndOf="@+id/title_page"
+            app:layout_constraintTop_toTopOf="@+id/title_page"
+            android:text="🍛"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="@id/recommContainer"
+            android:elevation="33dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="메인"
+                android:textSize="16dp" />
+
+            <include
+                android:id="@+id/mainlayout"
+                layout="@layout/combi_item"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/side1_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/main_layout"
+            android:elevation="33dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="사이드"
+                android:textSize="16dp" />
+
+            <include
+                android:id="@+id/side1layout"
+                layout="@layout/combi_item"
+                />
+            <include
+                android:id="@+id/side2layout"
+                layout="@layout/combi_item"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/limear3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/side1_layout"
+            android:elevation="33dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="국"
+                android:textSize="16dp" />
+
+            <include
+                android:id="@+id/souplayout"
+                layout="@layout/combi_item"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/limear4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="60dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/limear3"
+            android:elevation="33dp">
+
+            <TextView
+                android:id="@+id/tvTotalPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="총합: 1546원"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitStart"
+            android:src="@drawable/mypagegra"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/recommContainer"
+            android:layout_width="match_parent"
+            android:layout_height="560dp"
+            android:background="@drawable/rounded_top_corners"
+            android:elevation="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/gotocart_btn"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/text_yellow"
+        android:text="이 조합 그대로 담기"
+        android:textSize="16dp"
+        android:fontFamily="@font/pretendard_semibold"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

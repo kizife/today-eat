@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="16dp">
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/imageCard"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/orderMenuImg"
+            android:background="@color/back_gray"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+             />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="start|center_vertical">
+
+        <TextView
+            android:id="@+id/orderMenuName"
+            android:fontFamily="@font/pretendard_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="핫 치킨 부리또 외 3건"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/orderMenuPrice"
+            android:fontFamily="@font/pretendard_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="총 12000원"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/orderMenuDate"
+            android:textColor="@color/text_gray"
+            android:fontFamily="@font/pretendard_r"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2024-11-20"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

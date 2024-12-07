@@ -1,0 +1,204 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_ivory"
+    tools:context=".ui.category.CategorySide">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="140dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="33dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/mypageContainer"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/mypageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="@font/pretendard_extrabold"
+            android:text="김asdfasf님,"
+            android:textColor="@color/white"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/mypageTitle2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:fontFamily="@font/pretendard_r"
+            android:text="오늘도 맛있는 하루 되세요! 🍽"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitStart"
+        android:src="@drawable/mypagegra"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/goingTItle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:elevation="33dp"
+        android:fontFamily="@font/pretendard_bold"
+        android:text="지금 김싸피님에게 가고 있어요!🥕"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="@id/mypageContainer" />
+
+    <LinearLayout
+        android:id="@+id/goingList"
+        app:layout_constraintTop_toBottomOf="@id/goingTItle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_marginTop="12dp"
+        android:elevation="33dp"
+        android:layout_marginHorizontal="24dp">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/imageCard"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/comingMenuImg"
+                android:background="@color/back_gray"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="start|center_vertical">
+
+            <TextView
+                android:id="@+id/comingMenuName"
+                android:fontFamily="@font/pretendard_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="핫 치킨 부리또 외 3건"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/comingMenuPrice"
+                android:fontFamily="@font/pretendard_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="총 12000원"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/comingMenuDate"
+                android:textColor="@color/text_gray"
+                android:fontFamily="@font/pretendard_r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2024-11-20"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+    <TextView
+        android:id="@+id/recentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:elevation="33dp"
+        android:fontFamily="@font/pretendard_bold"
+        android:text="최근 주문 내역"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/goingList"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOrder"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="12dp"
+        android:elevation="33dp"
+        app:layout_constraintTop_toBottomOf="@id/recentTitle" />
+
+
+
+    <TextView
+        android:id="@+id/editAddBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:elevation="33dp"
+        android:fontFamily="@font/pretendard_bold"
+        android:layout_marginHorizontal="24dp"
+        android:text="주소 수정하기  "
+        android:drawableEnd="@drawable/editicon"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewOrder" />
+
+    <TextView
+        android:id="@+id/logout_text_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="100dp"
+        android:elevation="33dp"
+        android:fontFamily="@font/pretendard_bold"
+        android:text=" 로그아웃"
+        android:drawableStart="@drawable/logouticon"
+        android:drawableTint="@color/text_yellow"
+        android:textColor="@color/text_yellow"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editAddBtn" />
+
+    <!--로그아웃 버튼 위치가 바텀내비게이션에 가려지지 않는지 확인 필요-->
+
+
+    <View
+        android:id="@+id/mypageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
+        android:background="@drawable/rounded_top_corners"
+        android:elevation="32dp"
+        app:cardBackgroundColor="@color/background_ivory"
+        app:cardElevation="32dp"
+        app:cardMaxElevation="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

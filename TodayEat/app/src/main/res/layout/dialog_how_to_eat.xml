@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
+    android:background="@drawable/rounded_dialog_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10sp"
+    android:orientation="horizontal">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_bold"
+                android:text="불고기 도시락 영양성분"
+                android:layout_marginTop="20dp"
+                android:textSize="24sp"
+                />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="😋"
+                android:textSize="24sp"
+              />
+
+</LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/main"
+                android:layout_marginVertical="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="메인: 통밀식빵 250g" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="토스트기로 3분만 데워주시면 겉바속촉 통밀 식빵 완성!" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="영양 구성 성분" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="열량: 506kcal\n탄수화물: 103.2g\n단백질: 16.6g \n지방: 10.2g \n나트륨: 633mg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/side1"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="사이드1: 불고기 200g" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="모든 메인과 잘어울리는 불고기 야채를 곁들여 보세요!" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="영양 구성 성분" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="열량: 13640kcal\n탄수화물: 10g\n단백질: 37.4g \n지방: 13.8g \n나트륨: 380mg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/side2"
+                android:layout_marginVertical="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="사이드2: 샤인머스캣150" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="오늘의 비타민을 채워보세요" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="영양 구성 성분" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="열량: 346kcal\n탄수화물: 27.3g\n단백질: 1.1g \n지방: 0.31g \n나트륨: 3mg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/soup"
+                android:layout_marginVertical="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="국: 머쉬룸 스프 150g" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="부드럽고 따듯한 스프로 든든한 한끼" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="영양 구성 성분" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:fontFamily="@font/pretendard_r"
+                    android:text="열량: 1030kcal\n탄수화물: 13.5g\n단백질: 4.5g \n지방: 19.4g \n나트륨: 570mg" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
